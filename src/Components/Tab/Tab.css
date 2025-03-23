@@ -1,0 +1,19 @@
+.tab button {
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: small;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    background: rgb(221, 221, 221);
+}
+
+.tab button:hover {
+    background: rgb(212, 212, 212);
+    cursor: pointer;
+}
+
+.selected-tab {
+    background-color: rgb(175, 175, 175) !important;
+    color: white;
+}

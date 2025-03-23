@@ -1,0 +1,15 @@
+.base-page {
+    margin-top: 50px;
+}
+
+.base-page-tabs {
+    display: flex;
+}
+
+.base-page-tabs .tab:not(:first-child):not(:last-child) {
+    margin-left: 4px
+}
+
+.base-page-tabs .tab:last-child {
+    margin-left: 4px;
+}

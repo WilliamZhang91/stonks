@@ -1,0 +1,27 @@
+.company-profile-page {
+    /* background-color: rgb(221, 221, 221); */
+    padding: 20px 25px;
+    margin-bottom: 80px;
+}
+
+.company-profile-page img,
+.company-profile-page .company-profile-page-cards,
+.company-profile-page .company-description,
+.company-profile-page .group-card {
+    margin-top: 15px;
+}
+
+.MuiCollapse-root.MuiCollapse-vertical.MuiCollapse-hidden.css-cwrbtg-MuiCollapse-root {
+    margin-top: 0px;
+}
+
+.company-profile-page-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.background-color {
+    background-color: rgb(175, 175, 175);
+    border-radius: 0 5px 5px 5px;
+}

@@ -1,0 +1,65 @@
+name: actions
+
+on:
+  push:
+    branches: 
+      - 'feature/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/feature/')
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with: 
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run tests
+      run: npm run test
+    
+    - name: Log GitHub Variables
+      run: |
+        echo "GitHub Repository: ${{ github.repository }}"
+        echo "GitHub Ref: ${{ github.ref }}"
+    
+    - name: Log current branches
+      run: |
+        echo "Current branches:"
+        git branch -a
+        echo "Current commit history:"
+        git log --oneline --graph --decorate
+
+    - name: Fetch all branches
+      run: git fetch --all
+
+    - name: Checkout dev branch
+      run: |
+        if git show-ref --verify --quiet refs/remotes/origin/dev; then
+          git checkout dev
+        else
+          git checkout -b dev
+          git push origin dev
+        fi
+
+    - name: Push to remote dev
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        USERNAME: ${{ secrets.USERNAME }}
+        EMAIL: ${{ secrets.EMAIL }}
+      run: |
+        git config --global user.name "${USERNAME}"
+        git config --global user.email "${EMAIL}"
+        
+        git merge origin/feature/test --allow-unrelated-histories --no-ff -m "Merge feature/test into dev" || exit 1
+
+        git push origin dev
+
+
