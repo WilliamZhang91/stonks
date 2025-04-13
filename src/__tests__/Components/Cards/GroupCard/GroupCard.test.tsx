@@ -107,7 +107,7 @@ describe("GroupCard Component", () => {
         const { getByText } = renderGroupCard({
             companyKeyMetricsData: companyKeyMetricsMockResponse.data,
             historicalCompanyKeyMetricsData: companyKeyMetricsHistoricMockResponse.data,
-            isProduction: "false"
+            isProduction: "true"
         });
         const accordionItem = getByText(/profitability/i);
         const panelId = "panel1";

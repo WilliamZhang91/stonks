@@ -1,6 +1,6 @@
 import { CompanyIncomeStatement } from "../interfaces/CompanyIncomeStatement";
 
-export const incomeStatementHightlightsConfig = [
+export const incomeStatementHighlightsConfig = [
     {
         label: "Date",
         render: (company: CompanyIncomeStatement) => company.date,

@@ -6,7 +6,7 @@ import { dummyIncomeStatementData } from "../../dummy-data/dummyIncomeStatementD
 import Spinner from "../../Components/Spinner/Spinner";
 import Table from "../../Components/Table/Table";
 import FinancialsTable from "../../Components/Table/FinancialsTable";
-import { incomeStatementHightlightsConfig } from "../../TableConfig/IncomeStatementConfig";
+import { incomeStatementHighlightsConfig } from "../../TableConfig/IncomeStatementConfig";
 import { incomeStatementConfig } from "../../TableConfig/IncomeStatementConfig";
 
 interface Props {
@@ -54,7 +54,7 @@ const IncomeStatementPage: React.FC<Props> = ({
             <Spinner />
         ) : (
             <>
-                <Table config={incomeStatementHightlightsConfig} data={incomeStatementData} />
+                <Table config={incomeStatementHighlightsConfig} data={incomeStatementData} />
                 <FinancialsTable config={incomeStatementConfig} data={incomeStatementData} />
             </>
         )}

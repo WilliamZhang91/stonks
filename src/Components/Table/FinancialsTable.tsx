@@ -16,7 +16,12 @@ const FinancialsTable: React.FC<Props> = ({ data, config }): JSX.Element => {
             <td className="table-cell font-bold">{val.label}</td>
             {data.map((company: any, companyIndex: number) => (
                 <td key={companyIndex} className="table-cell">
-                    {index === 0 ? new Intl.DateTimeFormat('en-GB').format(new Date(val.render(company))) : currencyFormatter(val.render(company))}
+                    {
+                        index === 0 ?
+                            new Intl.DateTimeFormat('en-GB').format(new Date(val.render(company)))
+                            :
+                            currencyFormatter(val.render(company))
+                    }
                 </td>
             ))}
         </tr>

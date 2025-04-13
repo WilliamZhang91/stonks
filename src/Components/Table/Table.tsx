@@ -9,6 +9,7 @@ interface Props {
 
 const Table: React.FC<Props> = ({ config, data }): JSX.Element => {
 
+    //loops through financial statement data and formats date and monetary values
     const formattedData: any = data.map((d: any) => {
         const formattedCompany: any = {};
         for (const key in d) {
@@ -19,23 +20,24 @@ const Table: React.FC<Props> = ({ config, data }): JSX.Element => {
 
     const renderedRows = formattedData.map((company: any, index: number) => {
         return <tr key={index}>
-            {config.map((val: any) => {
+            {config.map((c: any) => {
                 return <>
-                    <td className="table-cell">{val.render(company)}</td>
+                    <td className="table-cell">{c.render(company)}</td>
                 </>
             })}
         </tr>
     });
 
-    const renderedHeaders = config.map((config: any, index: number) => {
+    const renderedHeaders = config.map((c: any, index: number) => {
         return <th key={index} className="table-header">
-            {config.label}
+            {c.label}
         </th>
     });
 
+    //Config is incomeStatementHighlightsConfig
     const trendRow = (
         <tr key="trend-row">
-            {config.map((val: any, index: number) => {
+            {config.map((c: any, index: number) => {
                 if (index === 0) {
                     return (
                         <td key={index} className="table-cell">
@@ -46,7 +48,7 @@ const Table: React.FC<Props> = ({ config, data }): JSX.Element => {
 
                 return (
                     <td key={index} className="wrapper">
-                        {Trends(data, val.label, config)}
+                        {Trends(data, c.label, config)}
                     </td>
                 );
             })}

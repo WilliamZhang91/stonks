@@ -7,12 +7,69 @@ const ratioLabels = [
     "Income Before Taxes Ratio"
 ];
 
+// const incomeStatementHighlightsConfig = [
+//     {
+//         label: "Date",
+//         render: (company: CompanyIncomeStatement) => company.date,
+//     },
+//     {
+//         label: "Revenue",
+//         render: (company: CompanyIncomeStatement) => company.revenue,
+//     },
+//     {
+//         label: "Cost Of Revenue",
+//         render: (company: CompanyIncomeStatement) => company.costOfRevenue,
+//     },
+//     {
+//         label: "Depreciation",
+//         render: (company: CompanyIncomeStatement) =>
+//             company.depreciationAndAmortization,
+//     },
+//     {
+//         label: "Operating Income",
+//         render: (company: CompanyIncomeStatement) => company.operatingIncome,
+//     },
+//     {
+//         label: "Income Before Taxes",
+//         render: (company: CompanyIncomeStatement) => company.incomeBeforeTax,
+//     },
+//     {
+//         label: "Net Income",
+//         render: (company: CompanyIncomeStatement) => company.netIncome,
+//     },
+//     {
+//         label: "Net Income Ratio",
+//         render: (company: CompanyIncomeStatement) => company.netIncomeRatio,
+//     },
+//     {
+//         label: "Earnings Per Share",
+//         render: (company: CompanyIncomeStatement) => company.eps,
+//     },
+//     {
+//         label: "Earnings Per Diluted",
+//         render: (company: CompanyIncomeStatement) => company.epsdiluted,
+//     },
+//     {
+//         label: "Gross Profit Ratio",
+//         render: (company: CompanyIncomeStatement) => company.grossProfitRatio,
+//     },
+//     {
+//         label: "Opearting Income Ratio",
+//         render: (company: CompanyIncomeStatement) => company.operatingIncomeRatio,
+//     },
+//     {
+//         label: "Income Before Taxes Ratio",
+//         render: (company: CompanyIncomeStatement) => company.incomeBeforeTaxRatio,
+//     },
+// ];
+
 const Trends = (data: any, label: string, config: any) => {
+    //Reverse api data
     const reversedData = [...data].reverse();
 
     return reversedData.map((d: any, i: number) => {
         // Retrieve the previous value if available
-        const previousValue = i > 0 ? config.find((val: any) => val.label === label)?.render(reversedData[i - 1]) : null;
+        const previousValue = i > 0 ? config.find((c: any) => c.label === label)?.render(reversedData[i - 1]) : null;
 
         return (
             <div key={i}>

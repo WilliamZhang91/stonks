@@ -132,12 +132,8 @@ const CompanyProfilePage: React.FC<Props> = ({
                 setError("Error fetching results");
             }
         }
-
         isProduction === "false" ? setCompanyProfileData(dummyData.data) : fetchCompanyProfile();
-
     }, [ticker]);
-
-
 
     return <section className={`company-profile-page ${state === tabNumber ? 'background-color' : ''}`}>
         {companyProfileData.length === 0 ? (

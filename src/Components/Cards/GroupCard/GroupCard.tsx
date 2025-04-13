@@ -6,10 +6,7 @@ import { reorganiseData } from "../../../functions/reorganiseData";
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
-import MuiAccordionSummary, {
-    AccordionSummaryProps,
-    accordionSummaryClasses,
-} from '@mui/material/AccordionSummary';
+import MuiAccordionSummary, { AccordionSummaryProps, accordionSummaryClasses } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { formatText } from "../../../functions/formatText";
@@ -92,7 +89,7 @@ const GroupCard: React.FC<Props> = ({
         }
     }
 
-    
+
     const handleNavigation = (metric: string, metricName: string, metricValue: string) => {
         const key = metric.slice(0, -3);
         const legend: (string | number)[][] = [
@@ -154,10 +151,10 @@ const GroupCard: React.FC<Props> = ({
         }
 
         if (isProduction === "false") {
-            setCompanyKeyMetricsData(dummyKeyMetrics); 
+            setCompanyKeyMetricsData(dummyKeyMetrics);
             setHistoricalCompanyKeyMetricsData(dummyHistoricalKeyMetrics);
         } else {
-            fetchKeyMetrics(); 
+            fetchKeyMetrics();
             fetchHistoricalKeyMetrics();
         }
 
