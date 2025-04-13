@@ -1,3 +1,7 @@
+jest.mock("../../../functions/api/api", () => ({
+    companySearch: jest.fn()
+}));
+
 import { cleanup, getByPlaceholderText, render, screen } from '@testing-library/react';
 import { MemoryRouter, Router } from "react-router-dom";
 import SearchBar from "../../../Components/SearchBar/SearchBar";
@@ -6,10 +10,6 @@ import { act } from 'react';
 import { companySearch } from '../../../functions/api/api';
 
 afterEach(() => cleanup());
-
-jest.mock("../../../functions/api/api", () => ({
-    companySearch: jest.fn()
-}));
 
 describe("SearchBar Component", () => {
     const searchBehaviourTest = async (searchValue: string, expectedText: string, mockResponse: any) => {
